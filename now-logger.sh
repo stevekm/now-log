@@ -35,8 +35,7 @@ now() {
     # then add message to a project-specific log as well
 
     # set the project dir location
-    # local project_dir="$HOME/projects"
-    local project_dir="$HOME/now-log/test-projects"
+    local project_dir="$HOME/projects"
 
     # check if the user is in a project dir or subdir
     case "$PWD" in
@@ -73,6 +72,4 @@ now() {
         ;;
     esac
 
-    # if [[ "$PWD" == *"$project_dir"* ]]; then
-    # fi
 }
