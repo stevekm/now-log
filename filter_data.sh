@@ -33,6 +33,6 @@ fi
 
 # save the filtered entries
 if [ ! -f "$output_file" ] ; then
-    echo -e "Output file does not exist, saving filtered results"
+    echo -e "Saving filtered results"
     grep -E "^$date_string" "$now_log_file" > "$output_file"
 fi
