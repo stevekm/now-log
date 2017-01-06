@@ -35,6 +35,13 @@ Note that the log file `.now_log.tsv` will be hidden by default from file explor
 
 Also note that the default location of `$HOME/now-logs/.now_log.tsv` is not the same as the directory of this repository.
 
+You can change the location of the log file by editting these lines in the `now-logger.sh` script
+
+```bash
+    local log_dir="$HOME/now-logs"
+    local log_file="${log_dir}/.now_log.tsv"
+```
+
 ## Project Specific Logging
 You can specify a 'projects' directory for the logging script. This represents a parent directory where you keep all of your work projects. When you us the `now` function from within this directory, or a subdirectory of it, your message will be added to a project-specific log file additionally, where the project is represented by the subdirectory name. 
 
