@@ -3,6 +3,11 @@
 ## USAGE: setup.sh
 ## DESCRIPTION: Add now-logger to bashrc
 
-now_logger_filepath="$(readlink -f now-logger.sh)"
+now_logger_filepath="${PWD}/now-logger.sh)"
 
-echo "source $now_logger_filepath" >> ~/.bashrc
+if [ -f "now_logger_filepath" ]; then
+    echo "source $now_logger_filepath" >> ~/.bashrc
+else
+    echo "ERROR: $now_logger_filepath is not a file. Does it exist?"
+fi
+
