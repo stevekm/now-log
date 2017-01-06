@@ -27,8 +27,7 @@ now() {
     local my_message="$@"
 
     # # write the entry to the now log file
-    echo -e "$my_date\t$my_message\t$PWD" >> "$log_file"
-    echo -e "Logged in $log_file"
+    echo -e "$my_date\t$my_message\t$PWD" >> "$log_file" && echo -e "Logged in $log_file"
 
     # ~~~~ PROJECT LOGGING ~~~~ #
     # if the current working directory is a project directory
@@ -66,8 +65,7 @@ now() {
         fi
 
         # write the project log entry
-        echo -e "$my_date\t$my_message\t$PWD" >> $project_log_file
-        echo -e "Logged in $project_log_file"
+        echo -e "$my_date\t$my_message\t$PWD" >> $project_log_file && echo -e "Logged in $project_log_file"
 
         ;;
     esac
