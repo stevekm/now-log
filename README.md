@@ -42,10 +42,6 @@ You can specify a 'projects' directory for the logging script. This represents a
 $ mkdir projects
 $ cd projects/
 
-$ now start working on some projects
-Logged in /Users/steve/now-logs/.now_log.tsv
-Logged in /Users/steve/projects//.project_log.tsv
-
 $ mkdir first_project
 $ cd first_project/
 $ now start setting up the first project
@@ -55,12 +51,25 @@ Logged in /Users/steve/projects/first_project/.project_log.tsv
 $ cd ../
 $ mkdir second_project
 $ cd second_project/
-$ now setting up second project cause the boss said so
+$ now setting up second project instead cause the boss said so
 Logged in /Users/steve/now-logs/.now_log.tsv
 Logged in /Users/steve/projects/second_project/.project_log.tsv
 ```
-```bash
 
+Each project gets its own log, and the primary log contains all messages.
+
+```bash
+$ cat /Users/steve/projects/first_project/.project_log.tsv
+2017-01-06 13:30:29	start setting up the first project	/Users/steve/projects/first_project
+
+$ cat /Users/steve/projects/second_project/.project_log.tsv
+2017-01-06 13:33:27	setting up second project instead cause the boss said so	/Users/steve/projects/second_project
+
+$ cat /Users/steve/now-logs/.now_log.tsv
+2017-01-06 13:14:05	I am going to do some work	/Users/steve
+2017-01-06 13:16:11	need to build a webserver	/Users/steve
+2017-01-06 13:30:29	start setting up the first project	/Users/steve/projects/first_project
+2017-01-06 13:33:27	setting up second project instead cause the boss said so	/Users/steve/projects/second_project
 ```
 
 The default project parent directory is `$HOME/projects`. You can change this by editting the following line in the `now-logger.sh` script
