@@ -18,7 +18,7 @@ now() {
     # set the default log file location
     local log_dir="$HOME/now-logs"
     mkdir -p "$log_dir"
-    local log_file="${log_dir}/now_log.tsv"
+    local log_file="${log_dir}/.now_log.tsv"
 
     # set the date
     local my_date=$(date "+%Y-%m-%d %H:%M:%S")
@@ -55,7 +55,7 @@ now() {
         local project_dir_log_path="$project_root_dir/$project_dir_basename"
 
         # the actual log file 
-        local project_log_file="$project_dir_log_path/project_log.tsv"
+        local project_log_file="$project_dir_log_path/.project_log.tsv"
 
         # make sure the directory exists
         if [ ! -d "$project_dir_log_path" ]; then
