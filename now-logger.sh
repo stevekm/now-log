@@ -18,7 +18,7 @@ now() {
     # set the default log file location
     local log_dir="$HOME/now-logs"
     mkdir -p "$log_dir"
-    local log_file="${log_dir}/.now_log.tsv"
+    local log_file="${log_dir}/.now.tsv"
 
     # set the date
     local my_date=$(date "+%Y-%m-%d %H:%M:%S")
@@ -26,8 +26,14 @@ now() {
     # the arguments passed to the script
     local my_message="$@"
 
+    local host_name="${HOSTNAME:-none}"
+    local user_name="${USER:-none}"
+
+    # create log entry
+    local log_entry="${my_date}\t${my_message}\t$PWD\t${host_name}\t${user_name}"
+
     # # write the entry to the now log file
-    echo -e "$my_date\t$my_message\t$PWD" >> "$log_file" && echo -e "Logged in $log_file"
+    printf "${log_entry}\n" >> "$log_file" && echo "Logged in $log_file"
 
     # ~~~~ PROJECT LOGGING ~~~~ #
     # if the current working directory is a project directory
@@ -54,7 +60,7 @@ now() {
         local project_dir_log_path="$project_root_dir/$project_dir_basename"
 
         # the actual log file 
-        local project_log_file="$project_dir_log_path/.project_log.tsv"
+        local project_log_file="$project_dir_log_path/.now.projectlog.tsv"
 
         # make sure the directory exists
         if [ ! -d "$project_dir_log_path" ]; then
@@ -65,7 +71,7 @@ now() {
         fi
 
         # write the project log entry
-        echo -e "$my_date\t$my_message\t$PWD" >> $project_log_file && echo -e "Logged in $project_log_file"
+        printf "${log_entry}\n" >> $project_log_file && echo -e "Logged in $project_log_file"
 
         ;;
     esac
