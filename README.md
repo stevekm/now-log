@@ -44,6 +44,10 @@ You can change the location of the log file by editting these lines in the `now-
     local log_file="${log_dir}/.now_log.tsv"
 ```
 
+### Updates
+
+- added logging of hostname and username with each log message so you can tell which server you were logged into at the time
+
 # Filtering By Date
 The `filter_data.sh` script can be used to filter the log for all entries that match a given date. This is useful when its the end of the month and you need a list of entries for billing.
 
